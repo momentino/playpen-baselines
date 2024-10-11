@@ -4,8 +4,8 @@ import os
 from typing import List
 
 import backends
-from playpen.clemgame import configure_logging, load_games
-from playpen.clemgame import benchmark
+from playpen.playpengame import configure_logging
+from playpen.playpengame import benchmark
 from agents.llm_agent import LlmAgent
 
 
@@ -42,7 +42,6 @@ from playpen.utils.run_utils import read_gen_args
 def prepare_benchmark():
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     configure_logging(project_root)
-    load_games(project_root)
     # look for custom user-defined models before loading the base registry
     backends.load_custom_model_registry()
     backends.load_model_registry()

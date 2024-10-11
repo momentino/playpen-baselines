@@ -1,5 +1,5 @@
 from playpen.agents import Agent
-from backends import Model, ModelSpec, read_model_spec, get_model_for
+from backends import read_model_spec, get_model_for
 
 from typing import Dict, Any
 
