@@ -49,19 +49,22 @@ def prepare_benchmark():
 
 def main(args: argparse.Namespace):
     prepare_benchmark()
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    results_dir = args.results_dir if os.path.isabs(args.results_dir) else os.path.join(project_root, args.results_dir)
     if args.command_name == "ls":
         benchmark.list_games()
     if args.command_name == "run":
         agents = [LlmAgent(m, m, read_gen_args(args)) for m in args.models]
+
         benchmark.run(args.game,
                       agents=agents,
                       experiment_name=args.experiment_name,
                       instances_name=args.instances_name,
-                      results_dir=args.results_dir)
+                      results_dir=results_dir)
     if args.command_name == "score":
-        benchmark.score(args.game, experiment_name=args.experiment_name, results_dir=args.results_dir)
+        benchmark.score(args.game, experiment_name=args.experiment_name, results_dir=results_dir)
     if args.command_name == "transcribe":
-        benchmark.transcripts(args.game, experiment_name=args.experiment_name, results_dir=args.results_dir)
+        benchmark.transcripts(project_root, args.game, experiment_name=args.experiment_name, results_dir=results_dir)
 
 
 if __name__ == "__main__":
