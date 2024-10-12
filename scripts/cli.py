@@ -1,15 +1,13 @@
 import argparse
-import json
 import os
-from typing import List
 
 import backends
 from playpen.playpengame import configure_logging
 from playpen.playpengame import benchmark
-from agents.llm_agent import LlmAgent
+from agents import create_agents
 
 
-from playpen.utils.run_utils import read_gen_args
+
 
 """
     Use good old argparse to run the commands.
@@ -54,8 +52,7 @@ def main(args: argparse.Namespace):
     if args.command_name == "ls":
         benchmark.list_games()
     if args.command_name == "run":
-        agents = [LlmAgent(m, m, read_gen_args(args)) for m in args.models]
-
+        agents = create_agents(args)
         benchmark.run(args.game,
                       agents=agents,
                       experiment_name=args.experiment_name,
