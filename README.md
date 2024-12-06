@@ -3,6 +3,12 @@ This repository is a space where baseline agents designed to integrate with the 
 
 **The following baselines are currently implemented:**
 - **ZeroShotLLMAgent**: a simple LLM agent with no training logic. It is suitable for performing zero-shot inference on already existing LLMs.
+# How to use
+First of all, create your own conda environment  
+`conda create --name playpen_baselines python=3.10.15`  
+
+Then, install the requirements
+`pip install -r requirements.txt`  
 # How to run the baselines
 ## ZeroShotLLMAgent
 
@@ -14,3 +20,6 @@ To run a specific game with n players (e.g. taboo): _Be mindful, you cannot spec
 
 If the game supports model expansion (using the single specified model for all players):  
   `$> python3 scripts/cli.py run -g taboo -m model_name`  
+# How to list games
+  `$> python3 scripts/cli.py ls
+`  
