@@ -23,9 +23,9 @@ If the game supports model expansion (using the single specified model for all p
 # How to score games (e.g taboo)
   `python scripts/cli.py score -g taboo`
   If you want to score specific experiments (Please refer to the playpen repository for additional details, \link[here]{https://github.com/momentino/playpen}) 
-  `python scripts/cli.py score -g taboo -e high_en`
+  `python scripts/cli.py score -g taboo -e high_en`  
 # How to generate transcripts from the games (e.g. taboo)
-  -e is optional (it has analogous effect as for the score command, generating transcripts only for a specific experiment)
+  -e is optional (it has analogous effect as for the score command, generating transcripts only for a specific experiment)  
   `python scripts/cli.py transcribe -g taboo -e high_en`
 # How to list games
   `$> python3 scripts/cli.py ls
